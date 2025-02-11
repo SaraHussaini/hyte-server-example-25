@@ -4,6 +4,7 @@
 
 -- Tämän skriptin suorittaminen (opettajan kone) sql clientissa:
 -- source /Users/mattpe/code/hyte/server-example-25/db/db-examples.sql
+
 DROP DATABASE IF EXISTS HealthDiary;
 CREATE DATABASE HealthDiary;
 USE HealthDiary;
@@ -16,6 +17,7 @@ CREATE TABLE Users (
     email VARCHAR(100) NOT NULL UNIQUE,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
+
 -- Create a table for diary entries
 CREATE TABLE DiaryEntries (
     entry_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -28,6 +30,7 @@ CREATE TABLE DiaryEntries (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES Users(user_id)
 );
+
 -- ALTER example, adding a new column to existing table
 ALTER TABLE Users ADD COLUMN user_level VARCHAR(10) DEFAULT 'regular';
 
