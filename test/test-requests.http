@@ -40,11 +40,12 @@ GET http://localhost:3000/api/users/3
 ### create a new user (user registration)
 POST http://localhost:3000/api/users
 content-type: application/json
+Authorization: Bearer
 
 {
-  "username": "newusername",
-  "password": "passwordx",
-  "email": "newemail@example.com"
+  "username": "xd123456521223",
+  "password": "x1123039283453",
+  "email": "xxnn@exampple.ffiiffiii"
 }
 
 ### modify an existing user by id
@@ -63,8 +64,31 @@ DELETE http://localhost:3000/api/users/3
 ### user login
 POST http://localhost:3000/api/users/login
 content-type: application/json
+Authorization: Bearer
 
 {
-  "username": "newusername",
-  "password": "passwordx"
+ "username": "xd123456521223",
+  "password": "x1123039283453"
 }
+### get my user info
+GET http://localhost:3000/api/auth/me
+Authorization: Bearer
+### post a new entry
+POST http://localhost:3000/api/entries
+Authorization: Bearer
+content-type: application/json
+
+{
+  "entry_date": "2025-02-27",
+  "blood_sugar": 5.6,
+  "insulin_dose": 12,
+  "mood": "iloinen",
+  "food": "Kaurapuuro, marjoja, pähkinöitä",
+  "exercise": "30 min kävely",
+  "weight": 60,
+  "sleep_hours": 6,
+  "notes": "Neuvolakäynti sujui hyvin, vauva kasvaa normaalisti"
+}
+### Get user's entries
+GET http://localhost:3000/api/entries
+Authorization: Bearer

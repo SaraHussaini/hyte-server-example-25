@@ -1,13 +1,12 @@
 import express from 'express';
 import cors from 'cors';
-//import {addItem, deleteItem, editItem, getItemById, getItems} from './items.js';
-
-//import userRouter from './routes/user-router.js';
-//import authRouter from './routes/auth-router.js';
-//import entryRouter from './routes/entry-router.js';
-//const hostname = '127.0.0.1';
+import userRouter from './routes/user-router.js';
+import authRouter from './routes/auth-router.js';
+import entryRouter from './routes/entry-router.js';
+import {errorHandler, notFoundHandler} from './middlewares/error-handler.js';
+const hostname = '127.0.0.1';
 const app = express();
-//const port = 3000;
+const port = 3000;
 
 // middleware, mitä tarvitaan, jotta Ullan fronttiharjoitukset toimivat (Vite)
 // lisää myös: import cors from 'cors'; tiedoston yläosaan
@@ -26,4 +25,23 @@ app.get('/api/', (req, res) => {
   res.send('Welcome to my REST API!');
 });
 
+// Users resurssin päätepisteet (endpoints)
+app.use('/api/users', userRouter);
+// käyttäjäautentikaatio (kirjautuminen)
+app.use('/api/auth', authRouter);
+// Päiväkirjamerkinnät
+app.use('/api/entries', entryRouter);
 
+// 404 virheitä varten
+app.use(notFoundHandler);
+// yleinen virhevastausten lähettäjä kaikkia virhetilanteita varten
+app.use(errorHandler);
+
+// palvelimen käynnistys lopuksi kaikkien määritysten jälkeen
+app.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
+});
+
+
+// Varmista, että userRouter on rekisteröity oikein:
+app.use('/api/users', userRouter);

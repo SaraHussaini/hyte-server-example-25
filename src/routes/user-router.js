@@ -1,26 +1,50 @@
 import express from 'express';
+import {body} from 'express-validator';
 import {
   addUser,
   deleteUser,
   editUser,
   getUserById,
   getUsers,
-  login,
 } from '../controllers/user-controller.js';
+import {authenticateToken} from '../middlewares/authentication.js';
+import {validationErrorHandler} from '../middlewares/error-handler.js';
 const userRouter = express.Router();
 
 // all routes to /api/users
-userRouter.route('/')
-  .get(getUsers)
-  .post(addUser);
+userRouter
+  .route('/')
+  // only logged in user can fetch the user list
+  .get(authenticateToken, getUsers)
+  .post(
+    body('username').trim().isLength({min: 3, max: 20}).isAlphanumeric(),
+    body('password').trim().isLength({min: 8, max: 120}),
+    body('email').trim().isEmail(),
+    validationErrorHandler,
+    addUser,
+  );
 
 // all routes to /api/users/:id
-userRouter.route('/:id')
-  .get(getUserById)
-  .put(editUser)
-  .delete(deleteUser);
+userRouter.route('/:id').get(getUserById).put(editUser).delete(deleteUser);
 
-// post to /api/users/login
-userRouter.post('/login', login);
+
+const router = express.Router();
+
+
+// Kirjautumisreitti
+router.post('/login', (req, res) => {
+    const { username, password } = req.body;
+
+    // Esimerkkitarkistus
+    if (username === 'newusername' && password === 'passwordx') {
+        return res.json({ message: 'Login successful', token: 'fake-jwt-token' });
+    } else {
+        return res.status(401).json({ message: 'Invalid credentials' });
+    }
+});
+
+
+
 
 export default userRouter;
+
