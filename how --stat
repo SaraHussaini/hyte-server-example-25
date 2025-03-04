@@ -1,0 +1,22 @@
+[33mcommit 073c8f0f12387dbc05675855744f5a30368f5946[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mvalidation[m[33m, [m[1;31morigin/validation[m[33m)[m
+Author: sarah <sarahussa@gmail.com>
+Date:   Tue Mar 4 15:30:04 2025 +0200
+
+    Päivitetty validation-haara
+
+ .env.sample                         |  9 [32m++++[m[31m--[m
+ .prettierrc.cjs                     | 11 [32m+++[m[31m----[m
+ db/db-examples.sql                  |  2 [32m+[m[31m-[m
+ package-lock.json                   | 29 [32m++++++++++++++++++[m
+ package.json                        |  1 [32m+[m
+ src/controllers/auth-controller.js  |  9 [32m++++[m[31m--[m
+ src/controllers/entry-controller.js | 21 [32m++++++++[m[31m-----[m
+ src/controllers/user-controller.js  | 61 [32m++++++++++++++++[m[31m---------------------[m
+ src/index.js                        | 32 [32m++++++++++++++[m[31m-----[m
+ src/middlewares/authentication.js   |  6 [32m++[m[31m--[m
+ src/middlewares/error-handler.js    | 54 [32m++++++++++++++++++++++++++++++++[m
+ src/models/user-model.js            | 10 [32m+++[m[31m---[m
+ src/routes/entry-router.js          | 20 [32m+++++++++++[m[31m-[m
+ src/routes/user-router.js           | 46 [32m+++++++++++++++++++++[m[31m-------[m
+ test/test-requests.http             | 36 [32m++++++++++++++++++[m[31m----[m
+ 15 files changed, 262 insertions(+), 85 deletions(-)

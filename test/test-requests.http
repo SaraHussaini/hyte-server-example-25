@@ -40,12 +40,11 @@ GET http://localhost:3000/api/users/3
 ### create a new user (user registration)
 POST http://localhost:3000/api/users
 content-type: application/json
-Authorization: Bearer
 
 {
-  "username": "xd123456521223",
-  "password": "x1123039283453",
-  "email": "xxnn@exampple.ffiiffiii"
+  "username": "mehrani12342",
+  "password": "x1123039283453133",
+  "email": "xxnn@exampple.ffiifiiiii"
 }
 
 ### modify an existing user by id
@@ -62,20 +61,20 @@ content-type: application/json
 DELETE http://localhost:3000/api/users/3
 
 ### user login
-POST http://localhost:3000/api/users/login
+POST http://localhost:3000/api/auth/login
 content-type: application/json
-Authorization: Bearer
 
 {
- "username": "xd123456521223",
-  "password": "x1123039283453"
+  "username": "mehrani12342",
+  "password": "x1123039283453133" 
 }
+
 ### get my user info
 GET http://localhost:3000/api/auth/me
-Authorization: Bearer
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0NCwidXNlcm5hbWUiOiJtZWhyYW5pMTIzNDIiLCJwYXNzd29yZCI6IiQyYiQxMCR4N1FhWjNLeklQT3I3c2x3Wi9oOVF1NUZvS2I5MlJyelcwdGhjQWRQaFFiQjVsT2ZUa0FvYSIsImVtYWlsIjoieHhubkBleGFtcHBsZS5mZmlpZmlpaWlpIiwiY3JlYXRlZF9hdCI6IjIwMjUtMDMtMDRUMTM6MjI6NTMuMDAwWiIsInVzZXJfbGV2ZWwiOiJyZWd1bGFyIiwiaWF0IjoxNzQxMDk2MjM1LCJleHAiOjE3NDExODI2MzV9.3RlM5EE_m0Me7GrWBema-ptvIOLGbve5H0_kSqIBI1A
 ### post a new entry
 POST http://localhost:3000/api/entries
-Authorization: Bearer
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0NCwidXNlcm5hbWUiOiJtZWhyYW5pMTIzNDIiLCJwYXNzd29yZCI6IiQyYiQxMCR4N1FhWjNLeklQT3I3c2x3Wi9oOVF1NUZvS2I5MlJyelcwdGhjQWRQaFFiQjVsT2ZUa0FvYSIsImVtYWlsIjoieHhubkBleGFtcHBsZS5mZmlpZmlpaWlpIiwiY3JlYXRlZF9hdCI6IjIwMjUtMDMtMDRUMTM6MjI6NTMuMDAwWiIsInVzZXJfbGV2ZWwiOiJyZWd1bGFyIiwiaWF0IjoxNzQxMDk2MjM1LCJleHAiOjE3NDExODI2MzV9.3RlM5EE_m0Me7GrWBema-ptvIOLGbve5H0_kSqIBI1A
 content-type: application/json
 
 {
@@ -91,4 +90,4 @@ content-type: application/json
 }
 ### Get user's entries
 GET http://localhost:3000/api/entries
-Authorization: Bearer
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0NCwidXNlcm5hbWUiOiJtZWhyYW5pMTIzNDIiLCJwYXNzd29yZCI6IiQyYiQxMCR4N1FhWjNLeklQT3I3c2x3Wi9oOVF1NUZvS2I5MlJyelcwdGhjQWRQaFFiQjVsT2ZUa0FvYSIsImVtYWlsIjoieHhubkBleGFtcHBsZS5mZmlpZmlpaWlpIiwiY3JlYXRlZF9hdCI6IjIwMjUtMDMtMDRUMTM6MjI6NTMuMDAwWiIsInVzZXJfbGV2ZWwiOiJyZWd1bGFyIiwiaWF0IjoxNzQxMDk2MjM1LCJleHAiOjE3NDExODI2MzV9.3RlM5EE_m0Me7GrWBema-ptvIOLGbve5H0_kSqIBI1A
